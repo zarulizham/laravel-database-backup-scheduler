@@ -7,7 +7,7 @@ use ZarulIzham\DatabaseBackup\Facades\DatabaseBackup;
 
 class DatabaseBackupCommand extends Command
 {
-    public $signature = 'database:backup';
+    public $signature = 'db:backup';
 
     public $description = 'Backup database';
 

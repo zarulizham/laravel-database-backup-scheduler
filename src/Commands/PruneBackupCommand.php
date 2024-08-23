@@ -8,7 +8,7 @@ use ZarulIzham\DatabaseBackup\Models\DatabaseBackup;
 
 class PruneBackupCommand extends Command
 {
-    public $signature = 'database:backup:prune {--days=14}';
+    public $signature = 'db:backup:prune {--days=14}';
 
     public $description = 'Delete old backups';
 

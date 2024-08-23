@@ -30,6 +30,8 @@ You can publish the config file with:
 php artisan vendor:publish --tag="database-backup-scheduler-config"
 ```
 
+To custom location of backup path,  refer [Spatie documentation](https://spatie.be/docs/laravel-medialibrary/v11/advanced-usage/using-a-custom-directory-structure)
+
 This is the contents of the published config file. You may modify as per your needs.
 
 ```php
@@ -47,12 +49,14 @@ return [
 
 Place these two scheduler in `app/Console/Kernel.php` (<= Laravel 10) or `routes/console.php` (>= Laravel 11)
 ```php
-$schedule->command('database:backup')->dailyAt('00:00')
+$schedule->command('db:backup')->dailyAt('00:00')
     ->environments('production');
 
-$schedule->command('database:backup:prune')->dailyAt('00:00')
+$schedule->command('db:backup:prune')->dailyAt('00:00')
     ->environments('production');
 ```
+
+To specify custom retention days for backup, specify `--days` option on `db:backup:prune` command. Default 14 days.
 
 ## Security Vulnerabilities
 

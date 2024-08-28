@@ -85,6 +85,9 @@ class DatabaseBackup
     {
         try {
             $this->databaseBackup->addMedia($this->localPath)
+                ->addCustomHeaders([
+                    'ACL' => 'private',
+                ])
                 ->toMediaCollection('dump', $this->backupData['storage']);
 
             $this->databaseBackup->update([
